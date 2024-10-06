@@ -6,11 +6,6 @@
 #include "time.h"
 #include "locale.h"
 
-void setColor(int textColor, int bgColor) {
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, (WORD)((bgColor << 4) | textColor));
-}
-
 void print(int** matA, int n, int cou) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < cou; j++) {
@@ -44,7 +39,6 @@ int main() {
 		}
 	}
 
-	print(matA, n, n);
 
 	int cou = 0;
 	for (int i = 0; i < n; i++) {
@@ -78,30 +72,50 @@ int main() {
 			}
 		}
 	}
-	setColor(3, 0);
 	printf("\nМатрица инцидентности: \n");
 	print(matAI, n, cou);
-	setColor(7, 0);
+
 
 	printf("\nРазмер графа определяется количеством столбов в матрице инцинтентности. \nРазмер графа: %d\n", cou);
 
+
+	int* Izol = (int*)malloc(n * sizeof(int));
+	int* Konc = (int*)malloc(n * sizeof(int));
+	int* Domin = (int*)malloc(n * sizeof(int));
 	versh = 0;
 	int k = 0;
+	int cI = 0, cK = 0, cD = 0;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < cou; j++) {
 			k += matAI[i][j];
 		}
 		if (k == 0) {
-			printf("\nИзолированная вершина: %d\n", versh + 1);
+			Izol[cI++] = i;
 		}
 		else if (k == 1) {
-			printf("\nКонцевая вершина: %d\n", versh + 1);
+			Konc[cK++] = i;
 		}
 		else if (k == n) {
-			printf("\nДоминирующая вершина: %d\n", versh + 1);
+			Domin[cD++] = i;
 		}
 		versh++;
 		k = 0;
 	}
+
+	printf("\nИзолированные вершины: ");
+	for (int i = 0; i < cI; i++) {
+		printf("%d ", Izol[i] + 1);
+	}
+
+	printf("\nКонцевые вершины: ");
+	for (int i = 0; i < cK; i++) {
+		printf("%d ", Konc[i] + 1);
+	}
+
+	printf("\nДоминирующие вершины: ");
+	for (int i = 0; i < cD; i++) {
+		printf("%d ", Domin[i] + 1);
+	}
+
 	return 0;
 }
