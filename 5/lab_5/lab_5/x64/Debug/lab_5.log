@@ -1,5 +1,5 @@
-﻿  1zd.cpp
-  2zd.cpp
-  Создание кода...
-E:\!учеба\3 семестр\Логика\5 лаба\lab_5\lab_5\2zd.cpp(22,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  lab_5.vcxproj -> E:\!учеба\3 семестр\Логика\5 лаба\lab_5\x64\Debug\lab_5.exe
+﻿  1zadan.cpp
+E:\!loaiz5\5\lab_5\lab_5\1zadan.cpp(60,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+E:\!loaiz5\5\lab_5\lab_5\1zadan.cpp(69,9): warning C4476: "printf": неизвестный символ поля типа "(" в описателе формата
+E:\!loaiz5\5\lab_5\lab_5\1zadan.cpp(63,6): warning C4101: svyaz: неиспользованная локальная переменная
+  lab_5.vcxproj -> E:\!loaiz5\5\lab_5\x64\Debug\lab_5.exe
